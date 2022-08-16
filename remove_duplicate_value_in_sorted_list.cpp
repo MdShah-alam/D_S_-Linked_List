@@ -67,8 +67,12 @@ void display(node *n)
 int main()
 {
     node *head=NULL;
+
     int n;
+    cout<<"Enter Node number :";
     cin>>n;
+
+    cout<<"Enter Node element :";
     for(int i=0; i<n; i++)
     {
         int a;

@@ -55,13 +55,14 @@ void rotate_list(Node *&head,int k)
     for(int i=1;i<k;i++)
     {
         curr=curr->next;
+    }
 
         temp->next=head;
 
         head=curr->next;
 
         curr->next=NULL;
-    }
+
     return ;
 }
 
@@ -77,15 +78,24 @@ void display(Node *n)
 
 int main()
 {
-    int n,k;
-    cin>>n>>k;
-    Node *head=NULL;
+     Node *head=NULL;
+
+    int n;
+    cout<<"Enter Node number :";
+    cin>>n;
+
+    cout<<"Enter Node element :";
+
     for(int i=0;i<n;i++)
     {
         int a;
         cin>>a;
         insert_at_tail(head,a);
     }
+
+    int k;
+    cout<<"How many times rotate :";
+    cin>>k;
 
     rotate_list(head,k);
 

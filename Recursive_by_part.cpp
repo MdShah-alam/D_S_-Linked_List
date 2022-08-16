@@ -34,23 +34,27 @@ void insert_at_tail(Node *&head,int val)
     temp->next=newNode;
 }
 
-Node *reverse_recursive(Node *&head,int count)
+Node * reverse_recursive(Node *&head,int k)
 {
-    if(head==NULL || head->next==NULL)
-        return head;
+    Node *currptr=head;
+    Node *prevptr=NULL;
+    Node *nextptr;
 
-    if(count!=0)
+    int count=0;
+
+    while(currptr!=NULL && count<k)
     {
-        cout<<count<<endl;
-        count--;
-        Node *newNode=reverse_recursive(head->next,count);
-
-        head->next->next=head;
-
-        head->next=NULL;
-
-        return newNode;
+        nextptr=currptr->next;
+        currptr->next=prevptr;
+        prevptr=currptr;
+        currptr=nextptr;
+        count++;
     }
+
+    if(nextptr!=NULL)
+        head->next=reverse_recursive(nextptr, k);
+
+     return prevptr;
 }
 
 void display(Node *n)

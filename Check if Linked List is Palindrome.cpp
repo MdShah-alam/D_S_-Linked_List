@@ -4,17 +4,17 @@ using namespace std;
 class Node
 {
 public:
-    int val;
+    char val;
     Node *next;
 
-    Node(int val)
+    Node(char val)
     {
         this->val=val;
         next=NULL;
     }
 };
 
-void insert_at_tail(Node *&head,int val)
+void insert_at_tail(Node *&head,char val)
 {
     Node *newNode=new Node(val);
 
@@ -75,7 +75,7 @@ int main()
 
     for(int i=0;i<n;i++)
     {
-        int a;
+        char a;
         cin>>a;
         insert_at_tail(head,a);
     }
